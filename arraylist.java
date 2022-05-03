@@ -44,10 +44,20 @@ public class ArrayList<T> {
         if (data == null) {
             throw new IllegalArgumentException("data cannot be null");
         }
-        for (int i = this.size; i >= 0; i--) {
-            backingArray[i + 1] = backingArray[i];
+
+        if (this.size >= backingArray.length) {
+            T[] backingNewArray = (T[]) new Object[2 * this.size];
+            for (int i = 0; i < backingArray.length; i++) {
+                backingNewArray[i + 1] = backingArray[i];
+            }
+            backingNewArray[0] = data;
+            backingArray = backingNewArray;
+        } else {
+            for (int i = this.size; i > 0; i--) {
+                backingArray[i] = backingArray[i - 1];
+            }
+            backingArray[0] = data;
         }
-        backingArray[0] = data;
         this.size++;
     }
 
@@ -66,7 +76,7 @@ public class ArrayList<T> {
         }
 
         if (this.size >= backingArray.length) {
-            T[] backingNewArray = (T[]) new Object[INITIAL_CAPACITY * 2];
+            T[] backingNewArray = (T[]) new Object[2 * this.size];
             for (int i = 0; i < this.size; i++) {
                 backingNewArray[i] = backingArray[i];
             }
@@ -93,6 +103,9 @@ public class ArrayList<T> {
 
     public T removeFromFront() {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        if (this.size == 0) {
+            throw new NoSuchElementException("The list is empty");
+        }
         T obj = backingArray[0];
 
         for (int i = 1; i < this.size; i++) {
@@ -117,6 +130,9 @@ public class ArrayList<T> {
 
     public T removeFromBack() {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        if (this.size == 0) {
+            throw new NoSuchElementException("The list is empty");
+        }
         T res = backingArray[this.size - 1];
         backingArray[this.size - 1] = null;
         this.size--;
