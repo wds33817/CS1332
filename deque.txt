@@ -1,0 +1,9 @@
+Deque supported operations:
+
+void addFirst(x)
+void addLast(x)
+x removeFirst()
+x removeLast()
+boolean isEmpty()
+int size()
+
