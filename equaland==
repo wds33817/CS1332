@@ -1,0 +1,27 @@
+Integer primitive = 1;
+Integer object = new Integer(1);
+Integer unequal = 2;
+
+// Using == On Value Equal Integers
+primitive == object;        // => false
+primitive == 1;             // => true
+object == 1;                // => true
+object == new Integer(1);   // => false
+
+// Using .equals() On Value Equal Integers
+primitive.equals(object);                 // => true
+object.equals(primitive);                 // => true
+primitive.equals(1);                      // => true
+object.equals(1);                         // => true
+(new Integer(1)).equals(1);               // => true
+(new Integer(1)).equals(new Integer(1));  // => true
+
+// Using == and .equals() on Unequal Integers
+primitive == unequal;        // => false
+object == unequal;           // => false
+primitive.equals(unequal);   // => false
+object.equals(unequal);      // => false
+
+// If run, the following do not work since 1 is considered a primitive without autoboxing
+1.equals(primitive);  // causes Error
+1.equals(1);          // causes Error
