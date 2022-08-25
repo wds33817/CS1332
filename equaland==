@@ -25,3 +25,6 @@ object.equals(unequal);      // => false
 // If run, the following do not work since 1 is considered a primitive without autoboxing
 1.equals(primitive);  // causes Error
 1.equals(1);          // causes Error
+
+
+In this course, unless you are checking for nulls, you will overwhelmingly be using the .equals() method for value equality rather than using ==.
