@@ -50,3 +50,79 @@ class SizeComparator implements Comparator<HDTV> {
         return tv1.getSize() - tv2.getSize();
     }
 }
+
+
+public class MenuItem implements Comparable<MenuItem> {
+    private String name;
+    private int price;
+
+    public MenuItem(String name, int price) { ... }
+
+    public int compareTo(MenuItem otherItem) {
+        return this.price - otherItem.getPrice();
+    }
+}
+
+
+MenuItem item1 = new MenuItem("cheesesteak", 4);
+MenuItem item2 = new MenuItem("cheesecake", 7);
+
+// we should compare these items like this:
+if (item1.compareTo(item2) < 0) {
+    ...
+}
+
+// this DOES NOT work:
+if (item1 < item2) {
+    ...
+}
+
+// this works properly
+if (item1.compareTo(item2) < 0) {
+    System.out.println(item1.name + " is cheaper than " + item2.name);
+} else if (item1.compareTo(item2) > 0) {
+    System.out.println(item1.name + " is more expensive than " + item2.name);
+} else {
+    System.out.println(item1.name + " and " + item2.name + " are the same price!");
+}
+
+// this does NOT work properly: (item2.price - item1.price) is 3, so the first two conditions are false
+if (item1.compareTo(item2) == -1) {
+    System.out.println(item1.name + " is cheaper than " + item2.name);
+} else if (item1.compareTo(item2) == 1) {
+    System.out.println(item1.name + " is more expensive than " + item2.name);
+} else {
+    System.out.println(item1.name + " and " + item2.name + " are the same price!");
+}
+
+
+asymptotic notation  渐进式符号
+
+Big-O high level:
+Primitive operations:
+Assign value
+Arithmetic operation
+Comparing two entities
+Method call or return from method
+Access element or follow a reference
+
+Primitive operations execute in constant time
+Count the operations
+f(n) operations on an input of size n, 3 cases:
+worst case - the algo running on worst set of data, worst performance
+best case - the algo running on best set of data, fastest performance
+average case - somewhere between and difficult to compute
+
+O(2^n), O(n^3)
+  
+O(nlog(n)), O(n), O(log(n)), O(1)   // these are acceptable.
+
+Big-O conventions:
+Drop constant factors:
+O(5n) -> O(n)
+
+
+
+
+
+
