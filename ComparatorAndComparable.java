@@ -98,7 +98,7 @@ if (item1.compareTo(item2) == -1) {
 
 asymptotic notation  渐进式符号
 
-Big-O high level:
+Big-O a measure of how performance scales as the input grows towards infinity. high level:
 Primitive operations:
 Assign value
 Arithmetic operation
