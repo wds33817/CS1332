@@ -98,7 +98,14 @@ if (item1.compareTo(item2) == -1) {
 
 asymptotic notation  渐进式符号
 
-Big-O a measure of how performance scales as the input grows towards infinity. high level:
+Big-O a measure of how performance scales as the input grows towards infinity.
+Big-O is a theoretical measure of worst-case behavior of algorithm performance. 
+It's used so that we can avoid smaller details like low-level system instructions and hardware / platform differences. 
+This gives us a simple way of modeling efficiency, but it results in loss of detail and direct practical applicability.
+
+  
+  
+High level:
 Primitive operations:
 Assign value
 Arithmetic operation
